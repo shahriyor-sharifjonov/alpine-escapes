@@ -105,12 +105,12 @@ const Header = () => {
                     <Link href="/resorts" className={styles.menuLink} onClick={toggleMenu}>{t.resorts}</Link>
                     <Link href="/articles" className={styles.menuLink} onClick={toggleMenu}>{t.articles}</Link>
                     <Link href="/saved" className={styles.menuLink} onClick={toggleMenu}>{t.saved}</Link>
-                    <Link href="https://mercurylab.uz" rel="noreferrer" target="_blank" className={styles.menuMerc}>
-                        <div>
+                    <div className={styles.menuMerc}>
+                        <Link href="https://mercurylab.uz" rel="noreferrer" target="_blank" >
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15.3593" cy="15.3588" r="12.6128" fill="url(#paint0_linear_758_3526)"></circle><ellipse cx="14.9999" cy="15" rx="2.99025" ry="18.2229" transform="rotate(45 14.9999 15)" fill="url(#paint1_linear_758_3526)"></ellipse><defs><linearGradient id="paint0_linear_758_3526" x1="28.3925" y1="-0.196884" x2="-4.82107" y2="34.278" gradientUnits="userSpaceOnUse"><stop stopColor="#DF972C"></stop><stop offset="1" stopColor="white" stopOpacity="0.58"></stop></linearGradient><linearGradient id="paint1_linear_758_3526" x1="18.0898" y1="-7.47497" x2="2.19288" y2="-4.76735" gradientUnits="userSpaceOnUse"><stop></stop><stop offset="1" stopColor="white" stopOpacity="0.58"></stop></linearGradient></defs></svg>
                             {t['site by']}
-                        </div>
-                    </Link>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </header>
