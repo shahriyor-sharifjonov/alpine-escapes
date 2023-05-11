@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -12,6 +12,7 @@ import ru from '@/../locales/ru'
 const Header = () => {
     const router = useRouter()
     const { locale } = router 
+    const [ menuOpen, setMenuOpen ] = useState(false)
     let language
     switch (locale) {
       case 'en':
@@ -24,6 +25,11 @@ const Header = () => {
         language = ru 
     }
     const t = language
+
+    function toggleMenu() {
+        setMenuOpen(!menuOpen)
+        document.body.classList.toggle('oh')
+    }
 
     function handleLanguageChange() {
         let loc
@@ -43,9 +49,9 @@ const Header = () => {
     }
 
     return (
-        <header className={styles.header}>
+        <header className={`${styles.header} ${styles.white} ${menuOpen ? styles.menuOpen : ''}`}>
             <nav className={`${styles.nav} container`}>
-                <Link href="/" className={styles.logo}>
+                <Link href="/" className={styles.logo} onClick={() => {setMenuOpen(false);document.body.classList.remove('oh')}}>
                     <div className={`${styles.logoImg}`}>
                         <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_634_5606)">
@@ -75,7 +81,7 @@ const Header = () => {
                             <Link href="/articles" className={styles.link} onMouseLeave={(e) => {e.target.classList.add(styles.leave);setTimeout(() => {e.target.classList.remove(styles.leave)}, 300)}}>{t.articles}</Link>
                         </li>
                         <li className={styles.li}>
-                            <Link href="https://mercurylab.uz" target="_blank" rel="noopener noreferrer" className={styles.link} onMouseLeave={(e) => {e.target.classList.add(styles.leave);setTimeout(() => {e.target.classList.remove(styles.leave)}, 300)}}>{t['order a website']}</Link>
+                            <Link href="https://mercurylab.uz" target="_blank" rel="noreferrer" className={styles.link} onMouseLeave={(e) => {e.target.classList.add(styles.leave);setTimeout(() => {e.target.classList.remove(styles.leave)}, 300)}}>{t['order a website']}</Link>
                         </li>
                     </ul>
                     <Link href="/saved" className={styles.saved}>
@@ -86,8 +92,27 @@ const Header = () => {
                     <button className={styles.lang} onClick={handleLanguageChange} onMouseLeave={(e) => {e.target.classList.add(styles.leave);setTimeout(() => {e.target.classList.remove(styles.leave)}, 300)}}>
                         { locale }
                     </button>
+                    <button type="button" className={`${styles.btn} ${menuOpen ? styles.active : ''}`} onClick={toggleMenu}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
                 </div>
             </nav>
+            <div className={`${styles.menu} ${menuOpen ? styles.open : ''}`}>
+                <div className={`${styles.menuContainer} container`}>
+                    <p className={styles.menuTitle}>{t.navigation}</p>
+                    <Link href="/resorts" className={styles.menuLink} onClick={toggleMenu}>{t.resorts}</Link>
+                    <Link href="/articles" className={styles.menuLink} onClick={toggleMenu}>{t.articles}</Link>
+                    <Link href="https://mercurylab.uz" rel="noreferrer" target="_blank" className={styles.menuLink}>Mercury Lab</Link>
+                    <Link href="https://mercurylab.uz" rel="noreferrer" target="_blank" className={styles.menuMerc}>
+                        <div>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="15.3593" cy="15.3588" r="12.6128" fill="url(#paint0_linear_758_3526)"></circle><ellipse cx="14.9999" cy="15" rx="2.99025" ry="18.2229" transform="rotate(45 14.9999 15)" fill="url(#paint1_linear_758_3526)"></ellipse><defs><linearGradient id="paint0_linear_758_3526" x1="28.3925" y1="-0.196884" x2="-4.82107" y2="34.278" gradientUnits="userSpaceOnUse"><stop stopColor="#DF972C"></stop><stop offset="1" stopColor="white" stopOpacity="0.58"></stop></linearGradient><linearGradient id="paint1_linear_758_3526" x1="18.0898" y1="-7.47497" x2="2.19288" y2="-4.76735" gradientUnits="userSpaceOnUse"><stop></stop><stop offset="1" stopColor="white" stopOpacity="0.58"></stop></linearGradient></defs></svg>
+                            {t['site by']}
+                        </div>
+                    </Link>
+                </div>
+            </div>
         </header>
     )
 }

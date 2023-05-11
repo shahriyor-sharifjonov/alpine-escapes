@@ -10,9 +10,9 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     if(router.pathname === "/"){
-      document.querySelector(`.${headerStyles.header}`).classList.remove(headerStyles.white)
+      document.querySelector(`.${headerStyles.header}`).setAttribute('white', false)
     }else{
-      document.querySelector(`.${headerStyles.header}`).classList.add(headerStyles.white)
+      document.querySelector(`.${headerStyles.header}`).setAttribute('white', true)
     }
   }, [router.pathname])
 
