@@ -147,7 +147,7 @@
     &Title{
         font-style: normal;
         font-weight: 600;
-        font-size: 20px;
+        font-size: 19px;
         line-height: 120%;
         text-transform: uppercase;
         color: #fff;
@@ -208,5 +208,36 @@
     }
     .search{
         margin-bottom: 40px;
+    }
+}
+@media (max-width: 992px){
+    .intro{
+        height: 100vh;
+        min-height: 100vh;
+    }
+    .items{
+        display: none;
+    }
+}
+@media (max-width: 576px){
+    .title{
+        font-size: 36px;
+        margin-bottom: 10px;
+        max-width: 348px;
+        width: 100%;
+    }
+    .search{
+        max-width: 320px;
+        width: 100%;
+        &Form{
+            input{
+                font-size: 14px;
+            }
+        }
+    }
+    .desc{
+        font-size: 16px;
+        line-height: 120%;
+        margin-bottom: 15px;
     }
 }

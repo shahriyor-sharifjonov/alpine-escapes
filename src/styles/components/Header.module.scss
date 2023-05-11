@@ -170,6 +170,24 @@
 }
 @media (max-width: 992px){
     .list{
-        margin-right: 40px;
+        display: none;
+    }
+    .saved{
+        display: none;
+    }
+}
+@media (max-width: 576px){
+    .logo{
+        &Img{
+            width: 50px;
+            height: 50px;
+            svg{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &Text{
+            font-size: 16px;
+        }
     }
 }
