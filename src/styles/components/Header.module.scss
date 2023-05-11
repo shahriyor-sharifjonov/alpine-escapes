@@ -73,10 +73,10 @@
         font-size: 16px;
         line-height: 120%;
         text-transform: uppercase;
-        color: #929292;
+        color: #565656;
         margin-bottom: 30px;
         padding-bottom: 15px;
-        border-bottom: 1px solid #4f4f4f;
+        border-bottom: 1px solid #565656;
     }
     &Link{
         display: flex;
@@ -98,7 +98,8 @@
         align-items: flex-end;
         justify-content: center;
         gap: 4px;
-        color: #000;
+        color: #565656;
+        font-weight: 600;
         flex: 1 1 auto;
         padding-bottom: 50px;
         div{
