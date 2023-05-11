@@ -158,7 +158,7 @@
     transition: 300ms ease-out;
     position: relative;
     overflow: hidden;
-    margin-bottom: -4px;
+    margin-bottom: -2px;
     padding-bottom: 2px;
     &.leave{
         @media (hover: hover){
@@ -169,6 +169,7 @@
         }
     }
     @media (hover: hover){
+        margin-bottom: -4px;
         &:hover{
             &::before{
                 transform: translateX(0%);
@@ -207,7 +208,7 @@
     position: relative;
     display: block;
     overflow: hidden;
-    margin-bottom: -4px;
+    margin-bottom: -2px;
     padding-bottom: 2px;
     &.leave{
         @media (hover: hover){
@@ -218,6 +219,7 @@
         }
     }
     @media (hover: hover){
+        margin-bottom: -4px;
         &:hover{
             &::before{
                 transform: translateX(0%);
